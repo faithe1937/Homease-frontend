@@ -1,25 +1,28 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState } from "react";
+import Navbar from "./components/navbar";
+import Auth from "./components/auth";
+import { UserSessionContext } from "./context/user-context";
+
+const GUEST_USER = { _guest: true, displayName: "Guest" };
 
 function App() {
+  const [user, setUser] = useState(GUEST_USER);
+
+  function logIn(name) {
+    setUser({ _guest: false, displayName: name });
+  }
+
+  function logOut(name) {
+    setUser(GUEST_USER);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Eeaaaeeeedit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserSessionContext.Provider value={{ user, logIn, logOut }}>
+      <div>
+        <Navbar />
+        <Auth />
+      </div>
+    </UserSessionContext.Provider>
   );
 }
 

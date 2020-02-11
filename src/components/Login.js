@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import useForm from "./useForm";
+import { Link } from "react-router-dom";
 import {
   Form,
   Grid,
@@ -9,21 +10,21 @@ import {
   Message
 } from "semantic-ui-react";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
-import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
-const SignUp = () => {
-  const { values, handleChange, handleSubmit } = useForm(signUp);
+const Login = () => {
+  const { values, handleChange, handleSubmit } = useForm(logIn);
+  const [currentUser, setCurrentUser] = useContext(UserContext);
 
-  function signUp() {
-    // setUserObj(values);
+  function logIn() {
     console.log(values);
+
     let user = {
-      firstname: values.firstname,
-      lastname: values.lastname,
       email: values.email,
       password: values.password
     };
-    fetch("http://localhost:3001/api/v1/users", {
+
+    fetch("http://localhost:3001/api/v1/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +33,8 @@ const SignUp = () => {
       body: JSON.stringify({ user })
     })
       .then(resp => resp.json())
-      .then(data => console.log(data));
+      .then(data => setCurrentUser(data))
+      .then(console.log(currentUser));
   }
 
   return (
@@ -44,7 +46,7 @@ const SignUp = () => {
       >
         <Grid.Column style={{ maxWidth: 600 }}>
           <Header as="h2" color="black" textAlign="center">
-            <HomeOutlinedIcon /> Welcome to our site!
+            <HomeOutlinedIcon /> Log-in to your account
           </Header>
           <Form size="large" onSubmit={handleSubmit}>
             <Segment stacked>
@@ -52,55 +54,40 @@ const SignUp = () => {
                 fluid
                 icon="user"
                 iconPosition="left"
-                placeholder="First Name"
-                value={values.firstname}
-                onChange={handleChange}
-              />
-              <Form.Input
-                fluid
-                icon="user"
-                iconPosition="left"
-                placeholder="Last Name"
-                value={values.lastname}
-                onChange={handleChange}
-              />
-              <Form.Input
-                fluid
-                icon="user"
-                iconPosition="left"
+                name="email"
                 placeholder="E-mail address"
-                value={values.email}
+                value={values.email || ""}
                 onChange={handleChange}
               />
               <Form.Input
                 fluid
                 icon="lock"
                 iconPosition="left"
+                name="password"
                 placeholder="Password"
-                value={values.password}
+                value={values.password || ""}
                 onChange={handleChange}
                 type="password"
               />
-
+              {/* if authenticated send to profile  */}
               <Button
+                color="black"
                 as={Link}
                 to="/Profile"
-                color="black"
                 fluid
                 size="large"
-                content="Submit"
                 type="submit"
               >
-                Create your Account
+                Login
               </Button>
             </Segment>
           </Form>
           <Message>
-            Already a user? <a href="/Login">Log In</a>
+            New to us? <a href="/Signup">Sign Up</a>
           </Message>
         </Grid.Column>
       </Grid>
     </div>
   );
 };
-export default SignUp;
+export default Login;

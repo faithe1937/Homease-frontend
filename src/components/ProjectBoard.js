@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ProjectList from "./ProjectList";
+import ProjectList from "./TaskList";
 import { connect } from "react-redux";
 
 class ProjectBoard extends Component {

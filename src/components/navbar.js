@@ -3,7 +3,7 @@ import { Input, Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 class Navbar extends Component {
-  state = { activeItem: "home" };
+  state = { activeItem: "Profile" };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
@@ -15,9 +15,9 @@ class Navbar extends Component {
         <Menu pointing>
           <Menu.Item
             as={Link}
-            to="/"
-            name="home"
-            active={activeItem === "home"}
+            to="/Login"
+            name="Login"
+            active={activeItem === "Login"}
             onClick={this.handleItemClick}
           />
           <Menu.Item
@@ -46,6 +46,13 @@ class Navbar extends Component {
             to="/Photos"
             name="Photos"
             active={activeItem === "Photos"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            as={Link}
+            to="/Invoice"
+            name="Invoice"
+            active={activeItem === "Invoice"}
             onClick={this.handleItemClick}
           />
           <Menu.Menu position="right">

@@ -1,53 +1,53 @@
 import React from "react";
-import { Icon, Table, Card, Image } from "semantic-ui-react";
-import CreateProject from "./CreateProject";
+import { Grid, Message, Header, Image, Icon, Divider } from "semantic-ui-react";
+// import CreateProject from "./CreateProject";
+// import ProjectTable from "./ProjectTable";
 
 const Profile = () => (
   <>
-    <CreateProject />
-    <Card>
-      <Image
-        src="https://cdn.dribbble.com/users/981580/screenshots/6327964/poppy.jpg"
-        wrapped
-        ui={false}
-      />
-      <Card.Content>
-        <Card.Header>Olive Juice</Card.Header>
-        <Card.Meta>
-          <span className="date">Homeowner</span>
-        </Card.Meta>
-      </Card.Content>
-    </Card>
-    <Table celled>
-      <Table.Header>
-        <Table.Row>
-          <Table.HeaderCell>Project Name</Table.HeaderCell>
-          <Table.HeaderCell>Status</Table.HeaderCell>
-          <Table.HeaderCell>Notes</Table.HeaderCell>
-        </Table.Row>
-      </Table.Header>
+    <Grid container style={{ padding: "1em .5em" }}>
+      {/* <Grid.Row>
+        <Grid.Column>
+          <Header as="h1" dividing>
+            INVOICE
+          </Header>
+        </Grid.Column>
+      </Grid.Row> */}
 
-      <Table.Body>
-        <Table.Row>
-          <Table.Cell>Bathroom Remodel</Table.Cell>
-          <Table.Cell negative>Demolition</Table.Cell>
-          <Table.Cell>Dog was barking couldn't finish</Table.Cell>
-        </Table.Row>
-        <Table.Row positive>
-          <Table.Cell>Kitchen Sink</Table.Cell>
-          <Table.Cell>
-            <Icon name="checkmark" />
-            Completed
-          </Table.Cell>
-          <Table.Cell>Payment Recieved</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Kitchen Window</Table.Cell>
-          <Table.Cell negative>Clean Up</Table.Cell>
-          <Table.Cell>Requires call</Table.Cell>
-        </Table.Row>
-      </Table.Body>
-    </Table>
+      <Grid.Row>
+        <Grid.Column>
+          <Message>
+            <Header
+              as="h1"
+              content="Welcome, Olive!"
+              style={{
+                fontSize: "4em",
+                fontWeight: "normal",
+                padding: ".5em 1em"
+              }}
+            />
+            <br></br>
+            <Image
+              src="https://hallgroat.com/wp-content/uploads/2013/06/forms1.jpg"
+              height="100px"
+              width="100%"
+            />
+            <br></br>
+            <br></br>
+            {/* <Button color="blue"></Button> */}
+          </Message>
+          <br></br>
+          <Divider horizontal>
+            <Header as="h4">
+              <Icon name="pencil alternate" />
+              Current Projects
+            </Header>
+          </Divider>
+          {/* <CreateProject /> */}
+          {/* <ProjectTable /> */}
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
   </>
 );
 

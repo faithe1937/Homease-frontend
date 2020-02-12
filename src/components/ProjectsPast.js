@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table, Header, Icon } from "semantic-ui-react";
 
-const ProjectsCurrent = () => {
+const ProjectsPast = () => {
   const [currentProject, setcurrentProject] = useState([]);
 
   useEffect(() => {
@@ -34,13 +34,13 @@ const ProjectsCurrent = () => {
           <Table.Row>
             <Table.Cell>
               <Header as="h2" textAlign="center">
-                Bathroom Remodel
+                Kitchen Remodel
               </Header>
             </Table.Cell>
             <Table.Cell textAlign="right">
               <Table.Cell>
                 <Icon name="checkmark" />
-                Approved
+                Finished
               </Table.Cell>
             </Table.Cell>
             <Table.Cell>
@@ -55,4 +55,4 @@ const ProjectsCurrent = () => {
   );
 };
 
-export default ProjectsCurrent;
+export default ProjectsPast;

@@ -3,7 +3,7 @@ import React, { useState, createContext, useEffect } from "react";
 export const ProjectContext = createContext();
 
 const ProjectContextProvider = props => {
-const [tasks, setTasks] = useState([
+  const [tasks, setTasks] = useState([
     {
       category: "demo",
       task: "pull tiles",
@@ -36,10 +36,10 @@ const [tasks, setTasks] = useState([
   console.log(tasks);
 
   <ProjectContext.Provider
-  // value={[user, setUser]}
-  value={(tasks, addTask, removeTask)}
->
-  {props.children}
-</ProjectContext.Provider>
-
-  export ProjectContextProvider;
+    // value={[user, setUser]}
+    value={(tasks, addTask, removeTask)}
+  >
+    {props.children}
+  </ProjectContext.Provider>;
+};
+export default ProjectContextProvider;

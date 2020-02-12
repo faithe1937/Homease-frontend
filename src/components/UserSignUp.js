@@ -11,10 +11,10 @@ import {
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import { Link } from "react-router-dom";
 
-const SignUp = () => {
-  const { values, handleChange, handleSubmit } = useForm(signUp);
+const UserSignUp = () => {
+  const { values, handleChange, handleSubmit } = useForm(UserSignUp);
 
-  function signUp() {
+  function UserSignUp() {
     // setUserObj(values);
     console.log(values);
     let user = {
@@ -103,4 +103,4 @@ const SignUp = () => {
     </div>
   );
 };
-export default SignUp;
+export default UserSignUp;

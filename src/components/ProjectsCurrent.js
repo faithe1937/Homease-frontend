@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Message, Segment } from "semantic-ui-react";
 
-const CurrentProjects = () => {
+const ProjectsCurrent = () => {
   const [currentProject, setcurrentProject] = useState([]);
 
   useEffect(() => {
-    getcurrentProjects();
+    getProjectsCurrent();
   }, []);
 
   //get current projects, need to add boolean column
-  const getcurrentProjects = async () => {
+  //
+  const getProjectsCurrent = async () => {
     const response = await fetch(`http://localhost:3001/api/v1/projects`);
     const data = await response.json();
     setcurrentProject(data);
@@ -28,3 +29,5 @@ const CurrentProjects = () => {
     </Segment>
   );
 };
+
+export default ProjectsCurrent;

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import useForm from "./useForm";
 import { Form, Divider, Header, Icon } from "semantic-ui-react";
-import InvoiceTable from "./InvoiceTable";
 
-const CreateProject = () => {
+const ProjectCreate = () => {
   const { values, handleChange, handleSubmit } = useForm(createProject);
   const [newProject, setNewProject] = useState("");
 
@@ -81,21 +80,5 @@ const CreateProject = () => {
     </div>
   );
 };
-//   <Card>
-//     <Card.Content header="Create a new project!" />
-//     <Card.Content projectname={projectname} />
-//     <Card.Content extra>
-//       <Card.Meta>Are you a homeowner or contractor?</Card.Meta>
-//       <div className="ui two buttons">
-//         <Button basic color="green">
-//           Contractor
-//         </Button>
-//         <Button basic color="red">
-//           HomeOwner
-//         </Button>
-//       </div>
-//     </Card.Content>
-//   </Card>
-// );
 
-export default CreateProject;
+export default ProjectCreate;

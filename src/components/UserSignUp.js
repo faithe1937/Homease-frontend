@@ -96,7 +96,7 @@ const UserSignUp = () => {
             </Segment>
           </Form>
           <Message>
-            Already a user? <a href="/Login">Log In</a>
+            Already a user? <a href="/UserLogin">Log In</a>
           </Message>
         </Grid.Column>
       </Grid>

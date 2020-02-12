@@ -12,7 +12,7 @@ import {
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import { UserContext } from "../context/UserContext";
 
-const Login = () => {
+const UserLogin = () => {
   const { values, handleChange, handleSubmit } = useForm(logIn);
   const [currentUser, setCurrentUser] = useContext(UserContext);
 
@@ -83,11 +83,11 @@ const Login = () => {
             </Segment>
           </Form>
           <Message>
-            New to us? <a href="/Signup">Sign Up</a>
+            New to us? <a href="/UserSignUp">Sign Up</a>
           </Message>
         </Grid.Column>
       </Grid>
     </div>
   );
 };
-export default Login;
+export default UserLogin;

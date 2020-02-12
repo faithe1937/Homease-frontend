@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Input, Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-class Navbar extends Component {
+class AppNav extends Component {
   state = { activeItem: "Profile" };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -15,23 +15,16 @@ class Navbar extends Component {
         <Menu pointing>
           <Menu.Item
             as={Link}
-            to="/Login"
-            name="Login"
-            active={activeItem === "Login"}
+            to="/UserLogin"
+            name="UserLogin"
+            active={activeItem === "UserLogin"}
             onClick={this.handleItemClick}
           />
           <Menu.Item
             as={Link}
-            to="/Profile"
-            name="Profile"
-            active={activeItem === "Profile"}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            as={Link}
-            to="/projectBoard"
-            name="ProjectBoard"
-            active={activeItem === "ProjectBoard"}
+            to="/Projects"
+            name="Projects"
+            active={activeItem === "Projects"}
             onClick={this.handleItemClick}
           />
           <Menu.Item
@@ -65,4 +58,4 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+export default AppNav;

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
-const ListDetails = ({ task }) => {
+const ProjectListDetails = ({ task }) => {
   const { removeTask } = useContext(UserContext);
   return (
     <li onClick={() => removeTask(task.id)}>
@@ -11,4 +11,4 @@ const ListDetails = ({ task }) => {
   );
 };
 
-export default ListDetails;
+export default ProjectListDetails;

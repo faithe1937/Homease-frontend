@@ -43,7 +43,7 @@ const HomepageHeading = () => (
         marginTop: "1.5em"
       }}
     />
-    <Button color="teal" size="huge" as={Link} to="/SignUp">
+    <Button color="teal" size="huge" as={Link} to="/UserSignUp">
       Get Started
       <Icon name="right arrow" />
     </Button>
@@ -83,12 +83,12 @@ class DesktopContainer extends Component {
                   Home
                 </Menu.Item>
                 <Menu.Item position="right">
-                  <Button as={Link} to="/Login">
+                  <Button as={Link} to="/UserLogin">
                     Log in
                   </Button>
                   <Button
                     as={Link}
-                    to="/SignUp"
+                    to="/UserSignUp"
                     primary={fixed}
                     color="teal"
                     style={{ marginLeft: "0.5em" }}

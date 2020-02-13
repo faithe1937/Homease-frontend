@@ -33,6 +33,7 @@ const UserLogin = prop => {
       .then(data => {
         localStorage.setItem("jwt", data.jwt);
         localStorage.setItem("user_id", data.user.id);
+        localStorage.setItem("name", data.user.firstname);
         prop.history.push("/projects");
       });
   }

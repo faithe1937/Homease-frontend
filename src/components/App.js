@@ -21,16 +21,11 @@ function App() {
     <>
       <Router>
         {/* <Context> */}
-        <ProfileNav />
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route exact path="/UserSignUp" component={UserSignUp} />
           <Route exact path="/UserLogin" component={UserLogin} />
-          <Route exact path="/Projects" component={Projects} />
-          <Route exact path="/Messages" component={Messages} />
-          <Route exact path="/Photos" component={Photos} />
-          <Route exact path="/Dashboard" component={Dashboard} />
-          <Route exact path="/Invoice" component={Invoice} />
+          <ProfileNav />
         </Switch>
         {/* </Context.> */}
       </Router>

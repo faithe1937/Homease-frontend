@@ -1,98 +1,97 @@
-import React, { useReducer, useContext, useEffect, useRef } from "react";
-export const Contextt = React.createContext({});
+import React, { Component } from "react";
+// import "../List.css";
 
-function appReducer(state, action) {
-  switch (action.type) {
-    case "reset": {
-      return action.payload;
-    }
-    case "add": {
-      return [
-        ...state,
-        {
-          id: Date.now(),
-          text: "",
-          completed: false
-        }
-      ];
-    }
-    case "delete": {
-      return state.filter(item => item.id !== action.payload);
-    }
-    case "completed": {
-      return state.map(item => {
-        if (item.id === action.payload) {
-          return {
-            ...item,
-            completed: !item.completed
-          };
-        }
-        return item;
-      });
-    }
-    default: {
-      return state;
-    }
+import TodoCreate from "./TodoCreate";
+
+export default class List extends Component {
+  render() {
+    const {
+      name = "Your list name",
+      placeholder = `New task on ${name}`
+    } = this.props;
+
+    return (
+      <div className="td-list_container">
+        <h5 className="td-list_name">{name}</h5>
+
+        <div className="td-list_add_task_box">
+          <input
+            type="text"
+            className="td-list_add_field"
+            value={this.state.inputValue}
+            onChange={this.onChange.bind(this)}
+            placeholder={placeholder}
+          />
+          <button
+            onClick={this.onButtonClick.bind(this)}
+            className="td-list_add_cta"
+          >
+            Add new task
+          </button>
+        </div>
+
+        <div className="td-task-box">
+          {this.state.tasks.map((task, idx, tasks) => (
+            <TodoCreate
+              checked={task.status}
+              key={idx}
+              onInpChange={this.onInputChange.bind(this, task, { idx }, tasks)}
+              removeTask={this.removeThisTask.bind(this, { idx }.idx)}
+            >
+              {task.text}
+            </TodoCreate>
+          ))}
+        </div>
+      </div>
+    );
   }
-}
 
-function useEffectOnce(cb) {
-  const didRun = useRef(false);
+  state = {
+    tasks: [],
+    inputValue: ""
+  };
 
-  useEffect(() => {
-    if (!didRun.current) {
-      cb();
-      didRun.current = true;
+  onChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+
+  onButtonClick() {
+    const newArr = this.state.tasks.slice(0);
+    newArr.length < 10
+      ? newArr.push({ text: this.state.inputValue, status: false })
+      : alert(
+          "Try to accomplish your actual tasks instead of creating a new one"
+        );
+
+    this.setState({
+      tasks: newArr,
+      inputValue: ""
+    });
+  }
+
+  onInputChange(tarea, indice, tareas) {
+    if (tarea.status) {
+      tarea.status = false;
+    } else {
+      tarea.status = true;
     }
-  });
-}
 
-export default function TodosApp() {
-  const [state, dispatch] = useReducer(appReducer, []);
+    this.setState({
+      tasks: tareas
+    });
+  }
 
-  useEffectOnce(() => {
-    const raw = localStorage.getItem("data");
-    dispatch({ type: "reset", payload: raw ? JSON.parse(raw) : [] });
-  });
+  removeThisTask(arrIdx) {
+    const newArr = this.state.tasks.splice(0);
 
-  useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(state));
-  }, [state]);
+    if (arrIdx > -1) {
+      newArr.splice(arrIdx, 1);
+    }
 
-  return (
-    <Contextt.Provider value={dispatch}>
-      <h1>Todos App</h1>
-      <button onClick={() => dispatch({ type: "add" })}>New Todo</button>
-      <br />
-      <br />
-      <TodosList items={state} />
-    </Contextt.Provider>
-  );
-}
-
-function TodosList({ items }) {
-  return items.map(item => <TodoItem key={item.id} {...item} />);
-}
-
-function TodoItem({ id, completed, text }) {
-  const dispatch = useContext(Contextt);
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between"
-      }}
-    >
-      <input
-        type="checkbox"
-        checked={completed}
-        onChange={() => dispatch({ type: "completed", payload: id })}
-      />
-      <input type="text" defaultValue={text} />
-      <button onClick={() => dispatch({ type: "delete", payload: id })}>
-        Delete
-      </button>
-    </div>
-  );
+    this.setState({
+      tasks: newArr
+    });
+  }
 }

@@ -1,9 +1,17 @@
 import React from "react";
 import "../App.css";
+import Messages from "./Messages";
+import Photos from "./Photos";
+import Dashboard from "./Dashboard";
+import Invoice from "./Invoice";
+import Projects from "./Projects";
+import { Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 // import { Menu } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
 
-export default prop => {
+const ProfileNav = () => {
   return (
     <>
       <div
@@ -11,18 +19,25 @@ export default prop => {
         style={{ backgroundColor: "#FFF" }}
       >
         <div className="p-2 flex-grow-1 bd-highlight align-self-center">
-          <i className="uil uil-home h1"></i>
+          <Link to={"/"}>
+            <i className="uil uil-home h1"></i>
+          </Link>
           {/* <img
             src="https://images.pexels.com/photos/1309897/pexels-photo-1309897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             alt="logoestiam"
             style={{ height: 50 }}
           /> */}
         </div>
+
         <div className="p-2 bd-highlight align-self-center">
-          <i className="uil uil-bell h2" />
+          <Link to={"/messages"}>
+            <i className="uil uil-bell h2" />
+          </Link>
         </div>
         <div className="p-2 bd-highlight align-self-center">
-          <i className="uil uil-invoice h2"></i>
+          <Link to={"/invoice"}>
+            <i className="uil uil-invoice h2"></i>
+          </Link>
         </div>
         <div className="p-2 bd-highlight align-self-center">
           <img
@@ -38,6 +53,13 @@ export default prop => {
           </span>
         </div>
       </div>
+      <Route exact path="/Projects" component={Projects} />
+      <Route exact path="/Messages" component={Messages} />
+      <Route exact path="/Photos" component={Photos} />
+      <Route exact path="/Dashboard/:id" component={Dashboard} />
+      {/* <Route exact path="/Projects/:id" component={Dashboard} /> */}
+      <Route exact path="/Invoice" component={Invoice} />
     </>
   );
 };
+export default ProfileNav;

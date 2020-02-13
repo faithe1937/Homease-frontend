@@ -33,12 +33,12 @@ const ProjectCreate = () => {
 
   return (
     <div>
-      <Divider horizontal>
+      {/* <Divider horizontal>
         <Header as="h4">
           <Icon name="bar chart" />
           Specifications
         </Header>
-      </Divider>
+      </Divider> */}
 
       <Form className="attached fluid segment" onSubmit={handleSubmit}>
         <Form.Group widths="equal"></Form.Group>

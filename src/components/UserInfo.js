@@ -11,7 +11,7 @@ const UserInfo = props => {
       </h3>
       <hr />
       <p className="text-black" style={{ fontSize: 20 }}>
-        Start Date and Finish Date
+        Invoice
       </p>
     </div>
   );

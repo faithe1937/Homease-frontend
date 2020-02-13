@@ -8,12 +8,14 @@ const Todo = props => {
       </span>
       <div className="card p-4 shadow mt-2" style={{ border: 0, height: 560 }}>
         <div className="d-flex bd-highligh ">
-          <h3 className="bd-highlight w-100 font-weight-bold">To do List</h3>
+          <h3 className="bd-highlight w-100 font-weight-bold">
+            Contractors To do List
+          </h3>
           <button className="btn btn-dark">Edit</button>
         </div>
         <hr />
 
-        {/* === Première card === */}
+        {/*first */}
         <div className="overflow-auto">
           <div
             className="card p-4 d-flex bd-highlight"
@@ -45,8 +47,7 @@ const Todo = props => {
             </span>
           </div>
 
-          {/* === Deuxième card === */}
-
+          {/*second */}
           <div
             className="card p-4 mt-2 d-flex bd-highlight"
             style={{
@@ -77,8 +78,7 @@ const Todo = props => {
             </span>
           </div>
 
-          {/* === Troisième card === */}
-
+          {/*third */}
           <div
             className="card p-4 mt-2 d-flex bd-highlight"
             style={{

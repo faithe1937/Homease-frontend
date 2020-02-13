@@ -1,35 +1,24 @@
-import React, { createContext, useEffect } from "react";
-import React from "./React";
-
-export const ProjectContext = createContext();
+import React, { useState, useContext } from "react";
+import Layout from "./Layout";
+import LayoutBelow from "./LayoutBelow";
+import { ProjectContext, UserContext } from "../context/Context";
+//parent of one project
 
 const DashBoard = () => {
   const [projects, setProjects] = useContext(ProjectContext);
-  const [user, setUser] = useContext(UserContext);
+  const [userr, setUser] = useContext(UserContext);
 
-  useEffect(() => {
-    getProjects();
-  }, []);
+  console.log(projects);
 
-  //get current projects, need to add boolean column
-  //
-  const getProjects = async () => {
-    const response = await fetch(`http://localhost:3001/api/v1/projects`);
-    const data = await response.json();
-    setProjects(data);
-  };
-
-  console.log(currentProjects);
   return (
-    <ProjectContext.Provider value={(projects, user)}>
-      >
+    <>
       <div className="container mt-4">
         <Layout />
       </div>
       <div className="container mt-4 mb-4">
         <LayoutBelow />
       </div>
-    </ProjectContext.Provider>
+    </>
   );
 };
 

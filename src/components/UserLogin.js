@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import useForm from "./useForm";
 import { Link } from "react-router-dom";
 import {
@@ -10,11 +10,11 @@ import {
   Message
 } from "semantic-ui-react";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../context/Context";
 
-const UserLogin = () => {
+const UserLogin = prop => {
   const { values, handleChange, handleSubmit } = useForm(logIn);
-  const [currentUser, setCurrentUser] = useContext(UserContext);
+  const [userr, setUser] = useContext(UserContext);
 
   function logIn() {
     console.log(values);
@@ -33,8 +33,8 @@ const UserLogin = () => {
       body: JSON.stringify({ user })
     })
       .then(resp => resp.json())
-      .then(data => setCurrentUser(data))
-      .then(console.log(currentUser));
+      .then(data => setUser(data));
+    prop.history.push("/");
   }
 
   return (
@@ -70,14 +70,7 @@ const UserLogin = () => {
                 type="password"
               />
               {/* if authenticated send to profile  */}
-              <Button
-                color="black"
-                as={Link}
-                to="/Profile"
-                fluid
-                size="large"
-                type="submit"
-              >
+              <Button color="black" fluid size="large" type="submit">
                 Login
               </Button>
             </Segment>

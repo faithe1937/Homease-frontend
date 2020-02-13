@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import UserInfo from "./UserInfo";
 import Status from "./Status";
 
-const Layout = () => {
-  const [currentProjects, setcurrentProjects] = useState([]);
+const Layout = props => {
+  const [currentProject, setcurrentProject] = useState([]);
 
   useEffect(() => {
-    getProjectsCurrent();
-  }, [currentProjects]);
+    getProjectCurrent();
+  }, []);
 
   //get current projects, need to add boolean column
-  const getProjectsCurrent = async () => {
-    const response = await fetch(`http://localhost:3001/api/v1/projects`);
+  const getProjectCurrent = async () => {
+    const response = await fetch(`http://localhost:3001/api/v1/projects${1}`);
     const data = await response.json();
-    setcurrentProjects(data);
-    console.log(currentProjects);
+    setcurrentProject(data);
+    console.log(currentProject);
   };
   return (
     <>

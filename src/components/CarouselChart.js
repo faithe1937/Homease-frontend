@@ -9,13 +9,13 @@ export default props => {
   return (
     <>
       <span className="text-muted mt-4 mb-4">
-        Photo Updates <i className="uil uil-angle-down" />
+        fotos <i className="uil uil-angle-down" />
       </span>
       <div className="card p-4 shadow mt-2" style={{ border: 0, height: 560 }}>
         <div className="d-flex bd-highligh ">
-          <h3 className="bd-highlight w-100 font-weight-bold">Résultats</h3>
+          <h3 className="bd-highlight w-100 font-weight-bold">Photos</h3>
           <button className="btn btn-dark" onClick={handleClick}>
-            Explorer
+            Explore
           </button>
         </div>
         <hr />

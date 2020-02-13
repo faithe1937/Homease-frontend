@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Message, Header, Icon, Divider } from "semantic-ui-react";
 import ProjectsCurrent from "./ProjectsCurrent";
 import ProjectsPast from "./ProjectsPast";
-import { UserContext } from "../context/Context";
 import ProjectCreate from "./ProjectCreate";
 
 const Projects = () => {
-  const [userr, setUser] = useContext(UserContext);
+  const user = localStorage.getItem("name");
   const [currentProjects, setcurrentProjects] = useState([]);
 
   useEffect(() => {
@@ -22,13 +21,22 @@ const Projects = () => {
 
   return (
     <>
+      {/* {currentProjects.map(project => (
+        <DashBoard
+          key={project.id}
+          projectId={project.id}
+          homeowner={project.homeowner_id}
+          contractor={project.contractor_id}
+          projectname={project.name}
+        />
+      ))} */}
       <Grid container style={{ padding: "1em .5em" }}>
         <Grid.Row>
           <Grid.Column>
             <Message>
               <Header
                 as="h1"
-                content="welcome, User"
+                content={`welcome, ${user}`}
                 style={{
                   fontSize: "4em",
                   fontWeight: "normal",
@@ -55,6 +63,7 @@ const Projects = () => {
                   {currentProjects.map(project => (
                     <ProjectsCurrent
                       key={project.id}
+                      projectId={project.id}
                       homeowner={project.homeowner_id}
                       contractor={project.contractor_id}
                       projectname={project.name}

@@ -1,15 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Layout from "./Layout";
 import LayoutBelow from "./LayoutBelow";
-import { ProjectContext, UserContext } from "../context/Context";
-//parent of one project
 
-const DashBoard = () => {
-  const [projects, setProjects] = useContext(ProjectContext);
-  const [userr, setUser] = useContext(UserContext);
-
-  console.log(projects);
-
+const DashBoard = props => {
+  console.log(props.projects);
   return (
     <>
       <div className="container mt-4">

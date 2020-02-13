@@ -1,4 +1,5 @@
 import React from "react";
+import TodoModal from "./TodoModal";
 
 const Todo = props => {
   return (
@@ -11,7 +12,7 @@ const Todo = props => {
           <h3 className="bd-highlight w-100 font-weight-bold">
             Contractors To do List
           </h3>
-          <button className="btn btn-dark">Edit</button>
+          <button className="btn btn-dark">send a message</button>
         </div>
         <hr />
 
@@ -32,13 +33,13 @@ const Todo = props => {
               </h4>
               <button
                 className="btn"
-                style={{
-                  backgroundColor: "#00334d",
-                  color: "white",
-                  borderColor: "#1875F0"
-                }}
+                // style={{
+                //   backgroundColor: "#00334d",
+                //   color: "white",
+                //   borderColor: "#1875F0"
+                // }}
               >
-                Expand
+                <TodoModal />
               </button>
             </div>
             <p className="d-flex">list</p>
@@ -63,13 +64,13 @@ const Todo = props => {
               </h4>
               <button
                 className="btn"
-                style={{
-                  backgroundColor: "#006699",
-                  color: "white",
-                  borderColor: "#1875F0"
-                }}
+                // style={{
+                //   backgroundColor: "#006699",
+                //   color: "white",
+                //   borderColor: "#1875F0"
+                // }}
               >
-                Expand
+                <TodoModal />
               </button>
             </div>
             <p className="d-flex">Some texte here .........</p>
@@ -92,13 +93,13 @@ const Todo = props => {
               <h4 className="bd-highlight w-100 font-weight-bold">Clean Up</h4>
               <button
                 className="btn"
-                style={{
-                  backgroundColor: "#07336E",
-                  color: "white",
-                  borderColor: "#1875F0"
-                }}
+                // style={{
+                //   backgroundColor: "#07336E",
+                //   color: "white",
+                //   borderColor: "#1875F0"
+                // }}
               >
-                Expand
+                <TodoModal />
               </button>
             </div>
             <p className="d-flex">List</p>

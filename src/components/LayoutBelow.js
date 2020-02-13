@@ -1,7 +1,7 @@
 import React from "react";
 import Todo from "./Todo.js";
 import CarouselChart from "./CarouselChart";
-import Messages from "./Messages";
+import LayoutMessage from "./LayoutMessage";
 
 export default props => {
   return (
@@ -13,7 +13,7 @@ export default props => {
         <CarouselChart />
       </div>
       <div className="col-sm">
-        <Messages />
+        <LayoutMessage />
       </div>
     </div>
   );

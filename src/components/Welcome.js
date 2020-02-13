@@ -26,7 +26,7 @@ const HomepageHeading = () => (
   <Container text>
     <Header
       as="h1"
-      content="S W A N S O N"
+      content="H O M E - E A S E"
       style={{
         fontSize: "4em",
         fontWeight: "normal",

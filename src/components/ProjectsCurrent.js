@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table, Header, Icon } from "semantic-ui-react";
+import { Table, Grid, Segment, Divider, Header, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import DashBoard from "./Dashboard";
 
@@ -27,35 +27,47 @@ const ProjectsCurrent = props => {
   console.log(props.propertyid);
   return (
     <>
-      <Table celled padded>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell singleLine>Project Name</Table.HeaderCell>
-            <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Comments</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-
-        <Table.Body>
-          <Table.Row>
-            <Header as="h2" textAlign="center" key={props.projectId}>
-              <Table.Cell>
-                <Link to={`/dashboard/${props.projectId}`}>
-                  {props.projectname}
-                </Link>
-              </Table.Cell>
-            </Header>
-
-            <Table.Cell textAlign="right">
-              <Table.Cell>
-                <Icon name="checkmark" />
-                Approved
-              </Table.Cell>
-            </Table.Cell>
-            <Table.Cell>{oneComment}</Table.Cell>
-          </Table.Row>
-        </Table.Body>
-      </Table>
+      <Grid container style={{ padding: "1.5em .5em" }}>
+        <Grid.Row>
+          <Grid.Column>
+            <Segment style={{ padding: "0em" }} vertical>
+              <Grid celled="internally" columns="equal" stackable>
+                <Grid.Row textAlign="center">
+                  <Grid.Column
+                    style={{ paddingBottom: "5em", paddingTop: "5em" }}
+                  >
+                    <Header
+                      as="h3"
+                      style={{ fontSize: "1.5em" }}
+                      textAlign="center"
+                      key={props.projectId}
+                    >
+                      <Link to={`/dashboard/${props.projectId}`}>
+                        {props.projectname}
+                      </Link>
+                    </Header>
+                  </Grid.Column>
+                  <Grid.Column
+                    style={{ paddingBottom: "5em", paddingTop: "5em" }}
+                  >
+                    <Header as="h3" style={{ fontSize: "1.5em" }}>
+                      <Icon name="checkmark" />
+                      Approved
+                    </Header>
+                  </Grid.Column>
+                  <Grid.Column
+                    style={{ paddingBottom: "5em", paddingTop: "5em" }}
+                  >
+                    <Header as="h3" style={{ fontSize: "1.5em" }}>
+                      {oneComment}
+                    </Header>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Segment>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </>
   );
 };

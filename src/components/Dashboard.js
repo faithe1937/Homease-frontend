@@ -3,7 +3,6 @@ import Layout from "./Layout";
 import LayoutBelow from "./LayoutBelow";
 
 const DashBoard = props => {
-  console.log(props.projects);
   return (
     <>
       <div className="container mt-4">

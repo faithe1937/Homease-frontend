@@ -23,9 +23,9 @@ export default props => {
         <div className="overflow-auto">
           <div className="row container">
             <div className="col-sm w-100 text-center">
-              <h4 className="mb-4 display-4" style={{ fontSize: 30 }}>
+              {/* <h4 className="mb-4 display-4" style={{ fontSize: 30 }}>
                 photos
-              </h4>
+              </h4> */}
               <Carousel
                 renderwithoutControls={({ previousSlide }) => (
                   <button onClick={previousSlide} className="btn">
@@ -37,7 +37,7 @@ export default props => {
                     <i className="uil uil-arrow-circle-right h1" />
                   </button>
                 )}
-                style={{ width: 350, height: 300, padding: 0 }}
+                style={{ width: 350, height: 560, padding: 0 }}
                 className="text-center"
                 autoplay={true}
                 easing={"easeQuadInOut"}
@@ -56,7 +56,7 @@ export default props => {
               </Carousel>
             </div>
           </div>
-          <h4 className="text-center mt-3 font-weight-bold">Project Name</h4>
+          {/* <h4 className="text-center mt-3 font-weight-bold">Project Name</h4> */}
           <span className="text-muted" style={{ fontSize: 12 }}>
             links to all photos
           </span>

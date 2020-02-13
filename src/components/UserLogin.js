@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import useForm from "./useForm";
-import { Link } from "react-router-dom";
 import {
   Form,
   Grid,
@@ -10,11 +9,9 @@ import {
   Message
 } from "semantic-ui-react";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
-import { UserContext } from "../context/Context";
 
 const UserLogin = prop => {
   const { values, handleChange, handleSubmit } = useForm(logIn);
-  const [userr, setUser] = useContext(UserContext);
 
   function logIn() {
     console.log(values);
@@ -33,8 +30,11 @@ const UserLogin = prop => {
       body: JSON.stringify({ user })
     })
       .then(resp => resp.json())
-      .then(data => setUser(data));
-    prop.history.push("/");
+      .then(data => {
+        localStorage.setItem("jwt", data.jwt);
+        localStorage.setItem("user_id", data.user.id);
+        prop.history.push("/projects");
+      });
   }
 
   return (

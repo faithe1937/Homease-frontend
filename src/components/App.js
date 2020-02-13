@@ -11,7 +11,6 @@ import Photos from "./Photos";
 import Dashboard from "./Dashboard";
 import Invoice from "./Invoice";
 import Welcome from "./Welcome";
-import Context from "../context/Context";
 // //
 // import Layout from "./Layout";
 // import LayoutBelow from "./LayoutBelow";
@@ -21,8 +20,9 @@ function App() {
   return (
     <>
       <Router>
-        <Context>
-          <ProfileNav />
+        {/* <Context> */}
+        <ProfileNav />
+        <Switch>
           <Route exact path="/" component={Welcome} />
           <Route exact path="/UserSignUp" component={UserSignUp} />
           <Route exact path="/UserLogin" component={UserLogin} />
@@ -31,7 +31,8 @@ function App() {
           <Route exact path="/Photos" component={Photos} />
           <Route exact path="/Dashboard" component={Dashboard} />
           <Route exact path="/Invoice" component={Invoice} />
-        </Context>
+        </Switch>
+        {/* </Context> */}
       </Router>
     </>
   );

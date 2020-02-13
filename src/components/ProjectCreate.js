@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useForm from "./useForm";
-import { Form, Divider, Header, Icon } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 
 const ProjectCreate = () => {
   const { values, handleChange, handleSubmit } = useForm(createProject);

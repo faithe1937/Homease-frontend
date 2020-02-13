@@ -1,5 +1,4 @@
-import React, { component } from "react";
-import ChartResult from "./ChartResult";
+import React from "react";
 import Carousel from "nuka-carousel";
 
 export default props => {
@@ -43,8 +42,14 @@ export default props => {
                 autoplay={true}
                 easing={"easeQuadInOut"}
               >
-                <img src="https://i.pinimg.com/564x/26/71/0e/26710e2e6f620a740be6cf56f3fe20ef.jpg" />
-                <img src="https://www.thewoodgraincottage.com/wp-content/uploads/2014/08/DIY-Dining-Room-Open-Shelving-by-The-Wood-Grain-Cottage-17.jpg" />
+                <img
+                  src="https://i.pinimg.com/564x/26/71/0e/26710e2e6f620a740be6cf56f3fe20ef.jpg"
+                  alt=""
+                />
+                <img
+                  src="https://www.thewoodgraincottage.com/wp-content/uploads/2014/08/DIY-Dining-Room-Open-Shelving-by-The-Wood-Grain-Cottage-17.jpg"
+                  alt="wood"
+                />
                 {/* <ChartResult />
                 <ChartResult />
                 <ChartResult /> */}

@@ -11,7 +11,7 @@ export default prop => {
         style={{ backgroundColor: "#FFF" }}
       >
         <div className="p-2 flex-grow-1 bd-highlight align-self-center">
-          <i class="uil uil-home h1"></i>
+          <i className="uil uil-home h1"></i>
           {/* <img
             src="https://images.pexels.com/photos/1309897/pexels-photo-1309897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             alt="logoestiam"
@@ -22,7 +22,7 @@ export default prop => {
           <i className="uil uil-bell h2" />
         </div>
         <div className="p-2 bd-highlight align-self-center">
-          <i class="uil uil-invoice h2"></i>
+          <i className="uil uil-invoice h2"></i>
         </div>
         <div className="p-2 bd-highlight align-self-center">
           <img

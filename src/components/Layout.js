@@ -7,13 +7,14 @@ const Layout = () => {
 
   useEffect(() => {
     getProjectsCurrent();
-  }, []);
+  }, [currentProjects]);
 
   //get current projects, need to add boolean column
   const getProjectsCurrent = async () => {
     const response = await fetch(`http://localhost:3001/api/v1/projects`);
     const data = await response.json();
     setcurrentProjects(data);
+    console.log(currentProjects);
   };
   return (
     <>

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Grid, Message, Header, Image, Icon, Divider } from "semantic-ui-react";
+import { Grid, Message, Header, Icon, Divider } from "semantic-ui-react";
 import ProjectsCurrent from "./ProjectsCurrent";
 import ProjectsPast from "./ProjectsPast";
 import { UserContext } from "../context/Context";

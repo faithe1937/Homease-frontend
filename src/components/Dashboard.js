@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import Layout from "./Layout";
 import LayoutBelow from "./LayoutBelow";
 import { ProjectContext, UserContext } from "../context/Context";

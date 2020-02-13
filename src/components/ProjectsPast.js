@@ -19,7 +19,7 @@ const ProjectsPast = props => {
     comment.description,
     comment.status
   ]);
-
+  console.log(arrComment);
   const oneComment = message.map(item => item.description);
   return (
     <>

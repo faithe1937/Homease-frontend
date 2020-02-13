@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Table, Header, Icon } from "semantic-ui-react";
 
-const ProjectsCurrent = () => {
-  const [currentProject, setcurrentProject] = useState([]);
+const ProjectsCurrent = props => {
+  const [message, setMessage] = useState([]);
 
   useEffect(() => {
-    getProjectsCurrent();
+    getMessage();
   }, []);
 
-  //get current projects, need to add boolean column
-  //
-  const getProjectsCurrent = async () => {
-    const response = await fetch(`http://localhost:3001/api/v1/projects`);
+  const getMessage = async () => {
+    const response = await fetch(`http://localhost:3001/api/v1/posts`);
     const data = await response.json();
-    setcurrentProject(data);
+    setMessage(data);
   };
-  console.log(currentProject);
+
+  const arrComment = message.map(comment => [
+    comment.title,
+    comment.description,
+    comment.status
+  ]);
+
+  const oneComment = message.map(item => item.description);
 
   return (
     <>
@@ -34,7 +39,7 @@ const ProjectsCurrent = () => {
           <Table.Row>
             <Table.Cell>
               <Header as="h2" textAlign="center">
-                Bathroom Remodel
+                {props.projectname}
               </Header>
             </Table.Cell>
             <Table.Cell textAlign="right">
@@ -43,11 +48,7 @@ const ProjectsCurrent = () => {
                 Approved
               </Table.Cell>
             </Table.Cell>
-            <Table.Cell>
-              Creatine supplementation is the reference compound for increasing
-              muscular creatine levels; there is variability in this increase,
-              however, with some nonresponders.
-            </Table.Cell>
+            <Table.Cell>{oneComment}</Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>

@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Grid, Message, Header, Image, Icon, Divider } from "semantic-ui-react";
-import TodoList from "./TodoList";
 import ProjectsCurrent from "./ProjectsCurrent";
 import ProjectsPast from "./ProjectsPast";
+import { UserContext } from "../context/Context";
+import ProjectCreate from "./ProjectCreate";
 
 const Projects = () => {
+  const [userr, setUser] = useContext(UserContext);
+  const [currentProjects, setcurrentProjects] = useState([]);
+
+  useEffect(() => {
+    getProjectsCurrent();
+  }, []);
+
+  //get current projects, need to add boolean column
+  const getProjectsCurrent = async () => {
+    const response = await fetch(`http://localhost:3001/api/v1/projects`);
+    const data = await response.json();
+    setcurrentProjects(data);
+  };
+
   return (
     <>
       <Grid container style={{ padding: "1em .5em" }}>
-        {/* <Grid.Row>
-        <Grid.Column>
-          <Header as="h1" dividing>
-            INVOICE
-          </Header>
-        </Grid.Column>
-      </Grid.Row> */}
-
         <Grid.Row>
           <Grid.Column>
             <Message>
@@ -29,11 +36,6 @@ const Projects = () => {
                 }}
               />
               <br></br>
-              {/* <Image
-                src="https://hallgroat.com/wp-content/uploads/2013/06/forms1.jpg"
-                height="100px"
-                width="100%"
-              /> */}
               <br></br>
               <br></br>
               {/* <Button color="blue"></Button> */}
@@ -41,7 +43,7 @@ const Projects = () => {
             <br></br>
             <Divider horizontal>
               <Header as="h4">
-                <Icon name="pencil alternate" />
+                {/* <Icon name="pencil alternate" /> */}
                 Current Projects
               </Header>
             </Divider>
@@ -50,7 +52,14 @@ const Projects = () => {
             <Grid container style={{ padding: "1em .5em" }}>
               <Grid.Row>
                 <Grid.Column>
-                  <ProjectsCurrent />
+                  {currentProjects.map(project => (
+                    <ProjectsCurrent
+                      key={project.id}
+                      homeowner={project.homeowner_id}
+                      contractor={project.contractor_id}
+                      projectname={project.name}
+                    />
+                  ))}
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -60,7 +69,7 @@ const Projects = () => {
       <br></br>
       <Divider horizontal>
         <Header as="h4">
-          <Icon name="pencil alternate" />
+          {/* <Icon name="pencil alternate" /> */}
           Past Projects
         </Header>
       </Divider>
@@ -68,7 +77,14 @@ const Projects = () => {
       <Grid container style={{ padding: "1em .5em" }}>
         <Grid.Row>
           <Grid.Column>
-            <ProjectsPast />
+            {currentProjects.map(project => (
+              <ProjectsPast
+                key={project.id}
+                homeowner={project.homeowner_id}
+                contractor={project.contractor_id}
+                projectname={project.name}
+              />
+            ))}
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -80,11 +96,10 @@ const Projects = () => {
         </Header>
       </Divider>
       <br></br>
-      {/* todolist */}
       <Grid container style={{ padding: "1em .5em" }}>
         <Grid.Row>
           <Grid.Column>
-            <TodoList />
+            <ProjectCreate />
           </Grid.Column>
         </Grid.Row>
       </Grid>

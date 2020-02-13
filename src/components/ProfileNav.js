@@ -11,18 +11,22 @@ export default prop => {
         style={{ backgroundColor: "#FFF" }}
       >
         <div className="p-2 flex-grow-1 bd-highlight align-self-center">
-          <img
-            src="https://cdn.dribbble.com/users/59947/screenshots/7304926/media/869beb3d15924c36781a6eacd03c5b2d.jpg"
+          <i class="uil uil-home h1"></i>
+          {/* <img
+            src="https://images.pexels.com/photos/1309897/pexels-photo-1309897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             alt="logoestiam"
-            style={{ height: 35 }}
-          />
+            style={{ height: 50 }}
+          /> */}
         </div>
         <div className="p-2 bd-highlight align-self-center">
           <i className="uil uil-bell h2" />
         </div>
         <div className="p-2 bd-highlight align-self-center">
+          <i class="uil uil-invoice h2"></i>
+        </div>
+        <div className="p-2 bd-highlight align-self-center">
           <img
-            src={Image}
+            src="https://d17fnq9dkz9hgj.cloudfront.net/breed-uploads/2018/09/dog-landing-hero-lg.jpg?bust=1536935129&width=1080"
             alt="imageprofil"
             className="rounded-circle"
             style={{ height: 40, width: 40 }}

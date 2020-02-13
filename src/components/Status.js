@@ -8,9 +8,7 @@ const Status = props => {
         className="card p-4 shadow overflow-auto"
         style={{ border: 0, height: 200 }}
       >
-        <h3 className="font-weight-bold">
-          Drop down/ search bar to look for project
-        </h3>
+        <h3 className="font-weight-bold">Due Date</h3>
         <hr />
         <div className="connected-steps container">
           <div className="step bg-primary" />

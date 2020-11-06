@@ -1,8 +1,8 @@
-#Built With
+## Built With
 
 Create-React-App
 
-Getting Started
+## Getting Started
 
 To get a local copy up and running follow these simple steps.
 Prerequisites
@@ -13,7 +13,7 @@ This is an example of how to list things you need to use the software and how to
 
 npm install npm@latest -g
 
-Installation
+## Installation
 
     Clone the repo
 
@@ -23,11 +23,11 @@ git clone https://github.com/github_faithe1937/Homease-frontend.git
 
 npm install
 
-Usage
+## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-Contributing
+## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
 
@@ -37,19 +37,15 @@ Contributions are what make the open source community such an amazing place to b
     Push to the Branch (git push origin feature/AmazingFeature)
     Open a Pull Request
 
-License
-
-Distributed under the MIT License. See LICENSE for more information.
-Contact
+## Contact
 
 Faith e J - faithe1937@gmail.com
 
 Project Link: https://github.com/github_faithe1937/Homease-frontend 
 
-Acknowledgements
+## Acknowledgements
 
     GitHub Emoji Cheat Sheet
     GitHub Pages
     Font Awesome
-
 
